@@ -1,6 +1,6 @@
 import { motion, useInView } from 'framer-motion'
 import { useRef } from 'react'
-import { FiExternalLink, FiGithub } from 'react-icons/fi'
+import { FiExternalLink, FiGithub, FiDownload } from 'react-icons/fi'
 import './Portfolio.css'
 
 const projects = [
@@ -39,6 +39,14 @@ const projects = [
     link: 'https://github.com/gamalragab21/FoodFokr-KMM',
     isGithub: true,
     tags: ['KMM', 'Compose', 'Ktor'],
+  },
+  {
+    title: 'TalkLive',
+    desc: 'A live talk and communication app built with modern Android development practices.',
+    image: 'images/portfolio/project5.png',
+    link: 'apks/talkLive.apk',
+    isApk: true,
+    tags: ['Android', 'Kotlin'],
   },
 ]
 
@@ -80,9 +88,10 @@ const Portfolio = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                     className="project-link"
+                    {...(project.isApk ? { download: true } : {})}
                   >
-                    {project.isGithub ? <FiGithub /> : <FiExternalLink />}
-                    <span>View Project</span>
+                    {project.isApk ? <FiDownload /> : project.isGithub ? <FiGithub /> : <FiExternalLink />}
+                    <span>{project.isApk ? 'Download APK' : 'View Project'}</span>
                   </a>
                 </div>
               </div>
