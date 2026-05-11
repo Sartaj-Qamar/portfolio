@@ -4,11 +4,19 @@ import { FiCalendar, FiMapPin, FiBriefcase } from 'react-icons/fi'
 import './Resume.css'
 
 const experiences = [
+
+    {
+    title: 'Android Developer',
+    company: 'Carecloud Software Company',
+    location: 'Bagh Azad Kashmir',
+    date: 'Jan 2026 - Present',
+    type: 'work',
+  },
   {
     title: 'Android Developer',
     company: 'Miltetap Software House',
     location: 'Karachi',
-    date: 'Jul 2025 - Present',
+    date: 'Jul 2025 - Dec 2025',
     type: 'work',
   },
   {
@@ -18,13 +26,7 @@ const experiences = [
     date: 'Aug 2024 - Aug 2025',
     type: 'work',
   },
-  {
-    title: 'Android Developer',
-    company: 'Funsol Technology',
-    location: 'Islamabad',
-    date: 'Jan 2023 - Aug 2023',
-    type: 'work',
-  },
+
   {
     title: 'Android Developer Intern',
     company: 'Contour Company',
