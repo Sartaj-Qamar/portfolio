@@ -48,6 +48,14 @@ const projects = [
     isApk: true,
     tags: ['Android', 'Kotlin'],
   },
+  {
+    title: 'Bluetooth Smart',
+    desc: 'A Bluetooth device management app for scanning, pairing and communicating with nearby Bluetooth devices.',
+    image: 'images/portfolio/project5.png',
+    link: 'apks/bluetoothDevice.apk',
+    isApk: true,
+    tags: ['Android', 'Bluetooth', 'Kotlin'],
+  },
 ]
 
 const Portfolio = () => {
