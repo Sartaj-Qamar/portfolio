@@ -9,12 +9,12 @@
 }
 
 .navbar.scrolled {
-  background: rgba(10, 10, 15, 0.85);
+  background: var(--navbar-bg);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   padding: 12px 0;
   border-bottom: 1px solid var(--border);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+  box-shadow: var(--navbar-shadow);
 }
 
 .navbar-container {
@@ -80,6 +80,27 @@
   gap: 16px;
 }
 
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--bg-card);
+  color: var(--text-primary);
+  font-size: 20px;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.theme-toggle:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
 .hire-btn {
   padding: 10px 24px;
   font-size: 14px;
@@ -100,7 +121,7 @@
   top: 100%;
   left: 0;
   right: 0;
-  background: rgba(10, 10, 15, 0.95);
+  background: var(--mobile-menu-bg);
   backdrop-filter: blur(20px);
   border-bottom: 1px solid var(--border);
   padding: 16px 24px;

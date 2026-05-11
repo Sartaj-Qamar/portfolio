@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { HiMenuAlt3, HiX } from 'react-icons/hi'
+import { HiSun, HiMoon } from 'react-icons/hi'
 import './Navbar.css'
 
 const navLinks = [
@@ -17,6 +18,18 @@ const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
   const [activeSection, setActiveSection] = useState('hero')
+  const [theme, setTheme] = useState(() => {
+    return localStorage.getItem('theme') || 'dark'
+  })
+
+  useEffect(() => {
+    document.documentElement.setAttribute('data-theme', theme)
+    localStorage.setItem('theme', theme)
+  }, [theme])
+
+  const toggleTheme = () => {
+    setTheme(prev => prev === 'dark' ? 'light' : 'dark')
+  }
 
   useEffect(() => {
     const handleScroll = () => {
@@ -77,6 +90,16 @@ const Navbar = () => {
         </ul>
 
         <div className="navbar-right">
+          <motion.button
+            className="theme-toggle"
+            onClick={toggleTheme}
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+            aria-label="Toggle theme"
+          >
+            {theme === 'dark' ? <HiSun /> : <HiMoon />}
+          </motion.button>
+
           <motion.button
             className="btn-primary hire-btn"
             onClick={() => scrollTo('contact')}

@@ -25,6 +25,33 @@
   --radius-lg: 20px;
   --radius-xl: 30px;
   --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --navbar-bg: rgba(10, 10, 15, 0.85);
+  --navbar-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+  --mobile-menu-bg: rgba(10, 10, 15, 0.95);
+  --overlay-bg: rgba(10, 10, 15, 0.8);
+}
+
+[data-theme="light"] {
+  --primary: #6c63ff;
+  --primary-dark: #5a52d5;
+  --primary-light: #8b83ff;
+  --primary-glow: rgba(108, 99, 255, 0.2);
+  --bg-primary: #f5f5fa;
+  --bg-secondary: #eeeef5;
+  --bg-card: #ffffff;
+  --bg-card-hover: #f0f0f8;
+  --text-primary: #1a1a2e;
+  --text-secondary: #555570;
+  --text-muted: #8888a0;
+  --border: rgba(0, 0, 0, 0.08);
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 8px 30px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.12);
+  --shadow-glow: 0 0 40px rgba(108, 99, 255, 0.1);
+  --navbar-bg: rgba(245, 245, 250, 0.85);
+  --navbar-shadow: 0 4px 30px rgba(0, 0, 0, 0.08);
+  --mobile-menu-bg: rgba(245, 245, 250, 0.95);
+  --overlay-bg: rgba(245, 245, 250, 0.8);
 }
 
 * {
