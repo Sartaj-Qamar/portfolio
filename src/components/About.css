@@ -1,7 +1,7 @@
 .about-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 60px;
+  gap: 70px;
   align-items: center;
 }
 
@@ -16,7 +16,8 @@
   right: -20px;
   bottom: -20px;
   border-radius: var(--radius-lg);
-  border: 2px solid rgba(108, 99, 255, 0.2);
+  border: 2px solid rgba(108, 99, 255, 0.15);
+  background: var(--gradient-subtle);
 }
 
 .about-image {
@@ -24,6 +25,7 @@
   border-radius: var(--radius-lg);
   position: relative;
   z-index: 1;
+  box-shadow: var(--shadow-lg);
 }
 
 .about-experience-badge {
@@ -31,27 +33,31 @@
   bottom: -20px;
   right: -20px;
   background: var(--gradient-1);
-  padding: 20px 24px;
+  padding: 22px 28px;
   border-radius: var(--radius-md);
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 14px;
   z-index: 2;
-  box-shadow: 0 10px 40px rgba(108, 99, 255, 0.4);
+  box-shadow: 0 12px 40px rgba(108, 99, 255, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .exp-number {
   font-family: 'Space Grotesk', sans-serif;
-  font-size: 36px;
+  font-size: 38px;
   font-weight: 700;
   color: white;
+  line-height: 1;
 }
 
 .exp-text {
-  font-size: 13px;
+  font-size: 12px;
   color: rgba(255, 255, 255, 0.9);
   line-height: 1.4;
   font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 .about-heading {
@@ -59,7 +65,8 @@
   font-size: 28px;
   font-weight: 600;
   margin-bottom: 24px;
-  line-height: 1.3;
+  line-height: 1.35;
+  letter-spacing: -0.3px;
 }
 
 .about-text {
@@ -71,35 +78,43 @@
 
 .about-text p {
   color: var(--text-secondary);
-  font-size: 16px;
-  line-height: 1.8;
+  font-size: 15px;
+  line-height: 1.85;
 }
 
 .about-info-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 16px;
-  margin-bottom: 32px;
+  gap: 12px;
+  margin-bottom: 36px;
 }
 
 .info-item {
-  padding: 16px;
+  padding: 18px;
   background: var(--bg-card);
   border-radius: var(--radius-sm);
   border: 1px solid var(--border);
+  transition: var(--transition);
+}
+
+.info-item:hover {
+  border-color: var(--border-hover);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-glow);
 }
 
 .info-label {
   display: block;
-  font-size: 12px;
+  font-size: 11px;
   text-transform: uppercase;
-  letter-spacing: 1.5px;
+  letter-spacing: 2px;
   color: var(--text-muted);
-  margin-bottom: 4px;
+  margin-bottom: 6px;
+  font-weight: 600;
 }
 
 .info-value {
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 500;
   color: var(--text-primary);
 }

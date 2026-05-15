@@ -1,11 +1,37 @@
 import { motion } from 'framer-motion'
-import { FiDownload, FiMail, FiGithub, FiLinkedin } from 'react-icons/fi'
+import { useState, useEffect } from 'react'
+import { FiDownload, FiMail, FiGithub, FiLinkedin, FiArrowRight } from 'react-icons/fi'
 import { IoLogoWhatsapp } from 'react-icons/io5'
 import './Hero.css'
 
+const roles = ['Android Developer', 'Kotlin Expert', 'Mobile Engineer', 'UI/UX Enthusiast']
+
 const Hero = () => {
+  const [roleIndex, setRoleIndex] = useState(0)
+  const [text, setText] = useState('')
+  const [isDeleting, setIsDeleting] = useState(false)
+
+  useEffect(() => {
+    const currentRole = roles[roleIndex]
+    let timeout
+
+    if (!isDeleting && text === currentRole) {
+      timeout = setTimeout(() => setIsDeleting(true), 2000)
+    } else if (isDeleting && text === '') {
+      setIsDeleting(false)
+      setRoleIndex((prev) => (prev + 1) % roles.length)
+    } else {
+      timeout = setTimeout(() => {
+        setText(currentRole.substring(0, isDeleting ? text.length - 1 : text.length + 1))
+      }, isDeleting ? 40 : 80)
+    }
+    return () => clearTimeout(timeout)
+  }, [text, isDeleting, roleIndex])
+
   return (
     <section className="hero section" id="hero">
+      <div className="hero-bg-accent"></div>
+      <div className="hero-bg-accent-2"></div>
       <div className="container hero-container">
         <div className="hero-content">
           <motion.div
@@ -27,7 +53,9 @@ const Hero = () => {
             Hi, I'm{' '}
             <span className="gradient-text">Sartaj Qamar</span>
             <br />
-            <span className="hero-role">Android Developer</span>
+            <span className="hero-role">
+              {text}<span className="typing-cursor">|</span>
+            </span>
           </motion.h1>
 
           <motion.p
@@ -49,7 +77,7 @@ const Hero = () => {
           >
             <a href="#contact" className="btn-primary">
               <span>Let's Talk</span>
-              <FiMail />
+              <FiArrowRight />
             </a>
             <a href="cv/Sartaj_Android_developer_Resume.pdf" download className="btn-outline">
               <span>Download CV</span>
@@ -113,8 +141,15 @@ const Hero = () => {
             <div className="hero-glow"></div>
             <div className="hero-ring hero-ring-1"></div>
             <div className="hero-ring hero-ring-2"></div>
+            <div className="hero-ring hero-ring-3"></div>
             <div className="hero-image-container">
               <img src="images/main.jpg" alt="Sartaj Qamar" className="hero-image" />
+            </div>
+            <div className="hero-floating-badge badge-kotlin">
+              <span>Kotlin</span>
+            </div>
+            <div className="hero-floating-badge badge-android">
+              <span>Android</span>
             </div>
           </div>
         </motion.div>

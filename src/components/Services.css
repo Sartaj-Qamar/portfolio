@@ -1,12 +1,12 @@
 .services-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
+  gap: 20px;
 }
 
 .service-card {
   position: relative;
-  padding: 40px 32px;
+  padding: 44px 32px 40px;
   background: var(--bg-card);
   border-radius: var(--radius-lg);
   border: 1px solid var(--border);
@@ -23,30 +23,47 @@
   height: 3px;
   background: var(--gradient-1);
   transform: scaleX(0);
-  transition: transform 0.4s ease;
+  transform-origin: left;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.service-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--gradient-subtle);
+  opacity: 0;
+  transition: var(--transition);
 }
 
 .service-card:hover::before {
   transform: scaleX(1);
 }
 
+.service-card:hover::after {
+  opacity: 1;
+}
+
 .service-card:hover {
-  border-color: rgba(108, 99, 255, 0.3);
+  border-color: var(--border-hover);
   box-shadow: var(--shadow-glow);
+  transform: translateY(-6px);
 }
 
 .service-icon-wrapper {
-  margin-bottom: 24px;
+  margin-bottom: 28px;
+  position: relative;
+  z-index: 1;
 }
 
 .service-icon {
-  width: 56px;
-  height: 56px;
+  width: 58px;
+  height: 58px;
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: var(--radius-md);
-  background: rgba(108, 99, 255, 0.1);
+  background: rgba(108, 99, 255, 0.08);
   color: var(--primary);
   font-size: 24px;
   transition: var(--transition);
@@ -56,31 +73,42 @@
   background: var(--gradient-1);
   color: white;
   transform: rotate(-5deg) scale(1.1);
+  box-shadow: 0 8px 24px rgba(108, 99, 255, 0.35);
 }
 
 .service-title {
   font-family: 'Space Grotesk', sans-serif;
-  font-size: 20px;
+  font-size: 19px;
   font-weight: 600;
-  margin-bottom: 12px;
+  margin-bottom: 14px;
   color: var(--text-primary);
+  position: relative;
+  z-index: 1;
+  letter-spacing: -0.2px;
 }
 
 .service-desc {
-  font-size: 15px;
+  font-size: 14px;
   color: var(--text-secondary);
-  line-height: 1.7;
+  line-height: 1.75;
+  position: relative;
+  z-index: 1;
 }
 
 .service-number {
   position: absolute;
-  top: 20px;
-  right: 24px;
+  top: 16px;
+  right: 20px;
   font-family: 'Space Grotesk', sans-serif;
-  font-size: 48px;
+  font-size: 56px;
   font-weight: 700;
-  color: rgba(255, 255, 255, 0.03);
+  background: var(--gradient-text);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  opacity: 0.04;
   line-height: 1;
+  z-index: 1;
 }
 
 @media (max-width: 900px) {

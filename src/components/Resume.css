@@ -12,14 +12,14 @@
   top: 0;
   bottom: 0;
   width: 2px;
-  background: linear-gradient(to bottom, var(--primary), rgba(108, 99, 255, 0.1));
+  background: linear-gradient(to bottom, var(--primary), rgba(108, 99, 255, 0.05));
   transform: translateX(-50%);
 }
 
 .timeline-item {
   position: relative;
   width: 50%;
-  padding: 0 40px 40px;
+  padding: 0 40px 44px;
 }
 
 .timeline-item.left {
@@ -45,6 +45,14 @@
   font-size: 16px;
   top: 0;
   z-index: 2;
+  transition: var(--transition);
+}
+
+.timeline-card:hover ~ .timeline-dot,
+.timeline-item:hover .timeline-dot {
+  background: var(--primary);
+  color: white;
+  box-shadow: 0 0 20px rgba(108, 99, 255, 0.3);
 }
 
 .timeline-item.left .timeline-dot {
@@ -61,54 +69,80 @@
   border-radius: var(--radius-lg);
   border: 1px solid var(--border);
   transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.timeline-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--gradient-subtle);
+  opacity: 0;
+  transition: var(--transition);
 }
 
 .timeline-card:hover {
-  border-color: rgba(108, 99, 255, 0.3);
+  border-color: var(--border-hover);
   box-shadow: var(--shadow-glow);
   transform: translateY(-4px);
 }
 
+.timeline-card:hover::before {
+  opacity: 1;
+}
+
 .timeline-type {
   display: inline-block;
-  font-size: 11px;
+  font-size: 10px;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 1.5px;
-  padding: 4px 14px;
+  letter-spacing: 2px;
+  padding: 5px 14px;
   border-radius: var(--radius-xl);
-  margin-bottom: 12px;
+  margin-bottom: 14px;
+  position: relative;
+  z-index: 1;
 }
 
 .timeline-type.work {
   color: var(--primary);
-  background: rgba(108, 99, 255, 0.1);
+  background: rgba(108, 99, 255, 0.08);
+  border: 1px solid rgba(108, 99, 255, 0.15);
 }
 
 .timeline-type.education {
   color: #00d26a;
-  background: rgba(0, 210, 106, 0.1);
+  background: rgba(0, 210, 106, 0.08);
+  border: 1px solid rgba(0, 210, 106, 0.15);
 }
 
 .timeline-title {
   font-family: 'Space Grotesk', sans-serif;
-  font-size: 20px;
+  font-size: 19px;
   font-weight: 600;
   color: var(--text-primary);
   margin-bottom: 6px;
+  position: relative;
+  z-index: 1;
+  letter-spacing: -0.2px;
 }
 
 .timeline-company {
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 500;
   color: var(--primary-light);
   margin-bottom: 12px;
+  position: relative;
+  z-index: 1;
 }
 
 .timeline-meta {
   display: flex;
   gap: 16px;
   flex-wrap: wrap;
+  position: relative;
+  z-index: 1;
 }
 
 .timeline-item.left .timeline-meta {
@@ -120,8 +154,9 @@
   display: flex;
   align-items: center;
   gap: 6px;
-  font-size: 13px;
+  font-size: 12px;
   color: var(--text-muted);
+  font-weight: 500;
 }
 
 @media (max-width: 768px) {
@@ -150,18 +185,19 @@
 /* Certificates Section */
 .certificates-section {
   max-width: 900px;
-  margin: 60px auto 0;
+  margin: 70px auto 0;
 }
 
 .certificates-heading {
   font-family: 'Space Grotesk', sans-serif;
-  font-size: 24px;
+  font-size: 22px;
   font-weight: 600;
   color: var(--text-primary);
   display: flex;
   align-items: center;
   gap: 10px;
   margin-bottom: 24px;
+  letter-spacing: -0.3px;
 }
 
 .certificates-heading svg {
@@ -171,14 +207,14 @@
 .certificates-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 20px;
+  gap: 16px;
 }
 
 .certificate-card {
   display: flex;
   align-items: center;
   gap: 16px;
-  padding: 20px 24px;
+  padding: 22px 24px;
   background: var(--bg-card);
   border-radius: var(--radius-lg);
   border: 1px solid var(--border);
@@ -188,7 +224,7 @@
 }
 
 .certificate-card:hover {
-  border-color: rgba(108, 99, 255, 0.3);
+  border-color: var(--border-hover);
   box-shadow: var(--shadow-glow);
   transform: translateY(-4px);
 }
@@ -197,13 +233,19 @@
   width: 48px;
   height: 48px;
   min-width: 48px;
-  background: rgba(108, 99, 255, 0.1);
+  background: rgba(108, 99, 255, 0.08);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   color: var(--primary);
   font-size: 20px;
+  transition: var(--transition);
+}
+
+.certificate-card:hover .certificate-icon {
+  background: var(--gradient-1);
+  color: white;
 }
 
 .certificate-info {
@@ -212,14 +254,14 @@
 
 .certificate-title {
   font-family: 'Space Grotesk', sans-serif;
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 600;
   color: var(--text-primary);
   margin-bottom: 4px;
 }
 
 .certificate-issuer {
-  font-size: 13px;
+  font-size: 12px;
   color: var(--text-muted);
 }
 
@@ -231,4 +273,5 @@
 
 .certificate-card:hover .certificate-link-icon {
   color: var(--primary);
+  transform: translate(2px, -2px);
 }
