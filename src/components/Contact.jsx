@@ -71,7 +71,7 @@ const Contact = () => {
                 </div>
                 <div>
                   <span className="contact-card-label">Location</span>
-                  <span className="contact-card-value">Hijrat Colony, Karachi</span>
+                  <span className="contact-card-value">Islamabad, Pakistan</span>
                 </div>
               </div>
 

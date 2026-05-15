@@ -74,7 +74,7 @@ const About = () => {
               </div>
               <div className="info-item">
                 <span className="info-label">Location</span>
-                <span className="info-value">Karachi, Pakistan</span>
+                <span className="info-value">Islamabad, Pakistan</span>
               </div>
               <div className="info-item">
                 <span className="info-label">Status</span>

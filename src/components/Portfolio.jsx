@@ -40,14 +40,7 @@ const projects = [
     isGithub: true,
     tags: ['KMM', 'Compose', 'Ktor'],
   },
-  {
-    title: 'TalkLive',
-    desc: 'A live talk and communication app built with modern Android development practices.',
-    image: 'images/portfolio/project5.png',
-    link: 'apks/talkLive.apk',
-    isApk: true,
-    tags: ['Android', 'Kotlin'],
-  },
+
   {
     title: 'Bluetooth Smart',
     desc: 'A Bluetooth device management app for scanning, pairing and communicating with nearby Bluetooth devices.',

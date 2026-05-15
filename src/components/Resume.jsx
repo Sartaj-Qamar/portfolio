@@ -1,6 +1,6 @@
 import { motion, useInView } from 'framer-motion'
 import { useRef } from 'react'
-import { FiCalendar, FiMapPin, FiBriefcase } from 'react-icons/fi'
+import { FiCalendar, FiMapPin, FiBriefcase, FiAward, FiExternalLink } from 'react-icons/fi'
 import './Resume.css'
 
 const experiences = [
@@ -38,7 +38,7 @@ const experiences = [
     title: 'Freelance Android Developer',
     company: 'Upwork & Freelancer',
     location: 'Remote',
-    date: '2014 - Present',
+    date: '2024 - Present',
     type: 'work',
   },
   {
@@ -47,6 +47,19 @@ const experiences = [
     location: '',
     date: '2016 - 2020',
     type: 'education',
+  },
+]
+
+const certificates = [
+  {
+    title: 'Ninesol Technology Certificate',
+    issuer: 'NineSol Technology',
+    file: '/certificates/Ninesol_Certificate.pdf',
+  },
+  {
+    title: 'Certificate',
+    issuer: '',
+    file: '/certificates/Certificate.pdf',
   },
 ]
 
@@ -104,6 +117,42 @@ const Resume = () => {
             </motion.div>
           ))}
         </div>
+
+        <motion.div
+          className="certificates-section"
+          initial={{ opacity: 0, y: 40 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6, delay: 0.4 }}
+        >
+          <h3 className="certificates-heading">
+            <FiAward /> Certificates
+          </h3>
+          <div className="certificates-grid">
+            {certificates.map((cert, index) => (
+              <motion.a
+                key={index}
+                href={cert.file}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="certificate-card"
+                initial={{ opacity: 0, y: 20 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.4, delay: 0.5 + index * 0.1 }}
+              >
+                <div className="certificate-icon">
+                  <FiAward />
+                </div>
+                <div className="certificate-info">
+                  <h4 className="certificate-title">{cert.title}</h4>
+                  {cert.issuer && (
+                    <p className="certificate-issuer">{cert.issuer}</p>
+                  )}
+                </div>
+                <FiExternalLink className="certificate-link-icon" />
+              </motion.a>
+            ))}
+          </div>
+        </motion.div>
       </div>
     </section>
   )
